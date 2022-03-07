@@ -1,29 +1,26 @@
-from setuptools import setup, find_packages
-import codecs
-import os
+import setuptools
 
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
 
-VERSION = '0.0.1'
-DESCRIPTION = 'Some useful functions for pytorch'
-LONG_DESCRIPTION = 'Some functions and models that can be useful for pytorch'
-
-# Setting up
-setup(
+setuptools.setup(
     name="torchvision_utils",
-    version=VERSION,
+    version="0.0.2",
     author="pejmans21",
-    author_email="<pezhmansamadi21@gmail.com>",
-    description=DESCRIPTION,
+    author_email="pezhmansamadi21@gmail.com",
+    description="some function for pytorch",
+    long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=find_packages(),
-    install_requires=['torch', 'torchsummary'],
-    keywords=['python', 'pytorch', 'function'],
+    url="https://github.com/pejmanS21/torchvision_utils",
+    project_urls={
+        "Bug Tracker": "https://github.com/pejmanS21/torchvision_utils/issues",
+    },
     classifiers=[
-        "Development Status :: 1 - Planning",
-        "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
-        "Operating System :: Unix",
-        "Operating System :: MacOS :: MacOS X",
-        "Operating System :: Microsoft :: Windows",
-    ]
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    package_dir={"": "lib"},
+    packages=setuptools.find_packages(where="lib"),
+    python_requires=">=3.6",
 )
